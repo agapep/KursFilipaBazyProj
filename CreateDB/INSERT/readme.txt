@@ -1,0 +1,1 @@
+uzupełnianie tabel przykładowymi danymi

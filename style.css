@@ -1,0 +1,241 @@
+
+
+html {
+	background: #ddd;
+}
+
+body {
+	float: left;
+	width: 70%;
+	margin: 1em 9%;
+	padding: 1em 3em;
+	font: 80%/1.4 tahoma, arial, helvetica, 'lucida sans', sans-serif;
+	border: 1px solid #ffaa00;
+	background: #B1F9FD;
+	position: relative;
+}
+
+#head {
+	margin-bottom: 1.8em;
+	margin-top: 1.8em;
+	padding-bottom: 0em;
+	border-bottom: 1px solid #999;
+	height: 80px;
+}
+
+#top {
+	width: 98%;
+	height: auto; 
+}
+
+.top ul ,li {
+	list-style-type: none ;
+	text-align: left;
+	display: inline;
+}
+
+ul.std ,li {
+	list-style-type: none ;
+	text-align: left;
+	display: block;
+}
+
+div.menu {
+	text-align: center;
+	padding: 5px;
+}
+
+div.name {
+	text-align: center;
+	border: 1px solid #006;
+	font-weight: bold;
+	background: #ddd;
+}
+
+#main {
+	margin: 0 auto;
+	width: 99%;
+	height: auto;
+	border: 1px solid #999;
+	padding: 0.5em;
+
+}
+
+.main ul > li{
+	list-style: circle;
+	margin-left: 3.5em;
+	padding: 5px 5px;
+	text-align: left;
+    display: block;
+}
+
+div#form > form > ul  > li > div {
+	padding: 7px 0px;
+}
+
+div#form > form > ul  > li > div > input { 
+	float:right;
+	padding: 2px 15px;
+}
+
+
+
+#foot {
+	float: left;
+	text-align: center;
+	width: 100%;
+	margin-top: 1.8em;
+	padding-top: 1em;
+	border-top: 1px solid #999;
+	font-size: 0.85em;
+}
+
+a {
+	color: #024378;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #04569A;
+	text-decoration: underline;
+}
+
+input {
+    border: 1px solid #006;
+    background: #ddd;
+	margin: 2px;
+}
+
+input:hover {
+    border: 1px solid #f00;
+    background: #eee;
+}
+
+input.bbcode {
+	margin: 1px;
+	width: 28px;
+}
+
+button {
+    border: 1px solid #006;
+    background: #ddd;
+}
+
+button:hover {
+    border: 1px solid #f00;
+    background: #eee;
+}
+
+textarea {
+	width: 400px;
+	height: 200px;
+	border: 1px solid #006;
+	margin: 1px;
+	background: #ddd;
+	font: 11px Verdana;
+}
+
+h1 {
+	font-size:26pt; 
+	text-align:center;
+}
+
+img {
+	border:none;
+	padding:5px;
+}
+
+p.main {
+	font-size: 12px; 
+	font-weight: bold;
+}
+
+p.topic {
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+	padding-bottom: 0.5em;
+}
+
+p.end {
+	font-size: 11px;
+	font-weight: bold;
+	text-align: right;
+}
+
+table.course tr td {
+	position:relative;
+	width:30%;
+	border: 0px solid gray;
+}
+
+.error {
+	position:absolute;
+	float: right;
+	color:red;
+}
+
+.gray {
+	padding-left:10px;
+	padding-right:18px;
+	border-left-style:solid;
+	border-right-style:none;
+	color:gray;
+}
+
+.gray table tr td {
+	color:gray; 
+	border: 0px solid gray;
+	
+}
+
+.red {
+	color:black; 
+	padding-left:10px;
+	padding-right:18px;
+	border-left-style:solid;
+	border-right-style:solid;
+}
+
+.red table tr td {
+	color:blue; 
+	border: 1px solid lightblue;
+	width:30%;
+}
+
+td {
+	padding-right: 10px;
+
+}
+
+.hl td {
+	background-color: #9AF2F7;
+}
+
+
+#user, #pass {
+	width:100px;
+}
+
+#form {
+	margin: 0 auto;
+	width:60%;
+}
+
+#memberList {
+	display:none;
+}
+
+#firstLine td {
+	color:black;
+	font-weight:bold;
+	text-decoration:underline;
+}
+
+fieldset {
+	border:0px;
+}
+h2{
+	text-align: center;
+}

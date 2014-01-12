@@ -1,0 +1,12 @@
+/* 
+ * Opisuje relacje członka ekipy kursu filipa, do konkretnego kursu, 
+ * i sprawowanych przez niego funkcji
+ */
+CREATE TABLE funkcje_ekipa_kurs (
+	id_kursy INTEGER NOT NULL,
+	id_ekipa INTEGER NOT NULL,
+	id_funkcje INTEGER NOT NULL,
+	FOREIGN KEY (id_kursy) REFERENCES kursy (id) ON DELETE CASCADE,
+	FOREIGN KEY (id_ekipa) REFERENCES ekipa (id) ON DELETE CASCADE,
+	FOREIGN KEY (id_funkcje) REFERENCES funkcje (id) ON DELETE CASCADE
+);

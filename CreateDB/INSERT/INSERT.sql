@@ -1,0 +1,5 @@
+\i ./INSERT/DOMY.sql
+\i ./INSERT/FUNKCJE.sql
+\i ./INSERT/KURSY.sql
+\i ./INSERT/UCZESTNICY.sql
+\i ./INSERT/EKIPA.sql
