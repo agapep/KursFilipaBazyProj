@@ -60,7 +60,7 @@ if (!isset ( $id ) || $id == 0) {
 } else {
 	$zapytanie = update ( $_GET, $_POST, $id );
 }
-
+//~ 
 $db = new DB ();
 //$q = $db->prepare($zapytanie);
 if ($db->exec($zapytanie)) {
@@ -74,11 +74,13 @@ if ($db->exec($zapytanie)) {
 } else {
 	$err_code = 1;
 	$redirect_to = $_SERVER['HTTP_REFERER'];
-	$message = $db->errorInfo()[2];
+	$temp = $db->errorInfo();
+	$message = $temp[2];
 	if ( $message == null ) $message = "Niestety nie udało się dodać/zaaktualizować danych.
 			Niestety brak jakichkolwiek informacji co poszło nie tak.";
 	else {
-		$err_code = $db->errorInfo()[0];
+		$temp = $db->errorInfo();
+		$err_code = $temp[0];
 	}
 }
 //$a = $db->exec ( $zapytanie );
