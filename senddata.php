@@ -4,6 +4,9 @@ ini_set ( 'log_errors', 1 );
 error_reporting ( E_ALL );
 require_once ('./klasy/DB.php');
 $i = 0;
+print_r($_POST);
+echo " ----- ";
+var_dump($_POST);
 
 function testKeyVal($key, $value) {
 	if ($key != 'id' && $key != 'redirect' && $value != '') return true;
@@ -69,7 +72,7 @@ if ($db->exec($zapytanie)) {
 	
 	if (!isset ( $id ) || $id == 0) $id = $db -> lastInsertId($_GET['where']."_id_seq");
 	$redirect_to = "index.php?";
-	if( isset($_POST['redirect'])&& $_POST['redirect']) $redirect_to .= $_POST['redirect'];
+	if( isset($_POST['redirect'])&& $_POST['redirect']) $redirect_to .= $_POST['redirect']."=".$_POST['id_'.$_POST['redirect']] ;
 	else $redirect_to .= $_GET['where']."=".$id; 
 } else {
 	$err_code = 1;

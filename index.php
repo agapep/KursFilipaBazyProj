@@ -52,6 +52,9 @@
 	else if (isset($_GET['kurs']))
 		$tmpl->add('main',kurs($db, $_GET['kurs']));
 		
+	else if (isset($_GET['kursy']))
+		$tmpl->add('main',kurs($db, $_GET['kursy']));
+		
 	else if(isset($_GET['uczestnik']))
 		$tmpl->add('main',uczestnik($db,$_GET['uczestnik']));
 		

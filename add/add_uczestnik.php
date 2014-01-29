@@ -7,7 +7,7 @@
 		
 		$item = $database->getItem("uczestnicy",$id, array("id_kursy" => $idkursu));
 		$schema = $database -> getInfo('uczestnicy'); 
-		$out .= add_create_form($schema, $database, $item, "kurs=".$idkursu);
+		$out .= add_create_form($schema, $database, $item, "kursy");
 		
 		if(isset( $_GET['add_uczestnik_kurs'])) {
 		$out .= '<tr><td colspan="5">Domyślnie wybrany kurs ma nr '.$_GET['add_uczestnik_kurs'];
