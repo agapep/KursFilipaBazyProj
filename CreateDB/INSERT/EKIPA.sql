@@ -1,6 +1,6 @@
 INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Kasia', 'Zduniak' ,'kajacostam@gmail.com');
 INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Adap', 'Mazur' ,'ada.m@gmail.com');
-INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Paweł', 'Milart' ,'kajacostam@@gmail.com');
+INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Paweł', 'Milart' ,'kajacostam2@gmail.com');
 INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Krzysztof', 'Jakubiak' ,'jakkubiak@gmail.com');
 INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Wanda', 'Półtawska' ,'wandzia@ibojesiesnow.pl');
 INSERT INTO ekipa (imie, nazwisko, email) VALUES ('Riko', 'Kaboom' ,'rico@mjakpingwiny.pl');

@@ -3,7 +3,7 @@
 ------- DROP ALL DOMAIN ------------
 --================================--
 DROP DOMAIN email_adress CASCADE;
-
+DROP DOMAIN tel_number CASCADE;
 
 --================================--
 ------- DROP ALL TABLES ------------
