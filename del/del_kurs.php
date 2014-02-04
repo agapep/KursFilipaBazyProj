@@ -18,7 +18,7 @@
 	}
 	
 	function del_funkcje_ekipa_kurs ($database, $id_funkcji , $id_ekipy, $id_kursu ) {
-		$delName = substr('del_funkcje',4);
+		$delName = substr('del_funkcje',4); //WTF
 		$out = '<h2>Usunięto '.$delName.'</h2>';
 		$out = '<h2>Usuwanie FROM '.$delName.'</h2>';
 		$a = $database->exec('DELETE FROM funkcje_ekipa_kurs WHERE 

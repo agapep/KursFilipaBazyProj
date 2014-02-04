@@ -34,7 +34,7 @@ function ekipa ($database ,$id, $id_kursy) {
 							WHERE (t1.id = t2.id_kursy)
 							AND (t1.data_end > NOW())");					
 	
-	$out .= ubierz_funkcje_ekipa_kurs($a,'funkcje','funkcje',$id);
+	$out .= ubierz_funkcje_ekipa_kurs($a,'funkcje','funkcje_ekipa_kurs',$id);
 	
 	$out .= '<h3>funkcje pełniłnione kiedyś:</h3>';
 	$a = $database->query("SELECT id_funkcje as id, id_kursy, miejscowosc, data_beg as data, nazwa 
@@ -44,7 +44,7 @@ function ekipa ($database ,$id, $id_kursy) {
 							WHERE t1.id = t2.id_kursy
 							   AND data_end < NOW()");					
 	
-	$out .= ubierz_funkcje_ekipa_kurs($a,'funkcje','funkcje',$id);
+	$out .= ubierz_funkcje_ekipa_kurs($a,'funkcje','funkcje_ekipa_kurs',$id);
 	return $out;
 
 };

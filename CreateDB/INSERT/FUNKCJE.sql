@@ -13,7 +13,7 @@ VALUES ( 'Przywitanie Uczestników', '', 'Organizacja', 80);
 
 INSERT INTO funkcje (nazwa, opis, typ, istotnosc) 
 VALUES ( 'Zbiurka przy transporcie', 
-		 'Osoba odpowiada za przywiezienie osób na miejsce. Czeka na stacji/przystanku i zbiera ludzi.', 
+		 'Osoba odpowiada za przywiezienie osób na miejsce', 
 		 'Organizacja', 80);
 
 INSERT INTO funkcje (nazwa, opis, typ, istotnosc) 

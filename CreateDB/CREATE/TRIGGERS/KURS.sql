@@ -32,6 +32,12 @@ CREATE OR REPLACE FUNCTION kursy_uzupelnij_dane() RETURNS TRIGGER AS'
 		    --ELSE 
 			--RAISE NOTICE ''Podano Date Końca: % '', NEW.data_end;
 		END IF;
+
+		--testowanie daty końca
+		IF NOT (NEW.data_beg < NEW.data_end ) THEN 
+			RAISE EXCEPTION ''Data końca nie może być późniejsza niż data początku!'';
+			RETURN NULL;
+		END IF;
 		
 		--dodanie data_zapisy
 		IF (NEW.data_zapisy IS NULL ) THEN 
@@ -39,14 +45,12 @@ CREATE OR REPLACE FUNCTION kursy_uzupelnij_dane() RETURNS TRIGGER AS'
 			NEW.data_zapisy := NEW.data_beg - interval ''5 day'';
 		END IF;
 		
-		--dodawanie max_ludzi
-		IF (NEW.max_ludzi IS NULL ) THEN 
-			RAISE NOTICE ''Nie dałeś Maksymalnej liczby uczestników. Jakoś sobie oszacuje.'';
-			SELECT pojemnosc INTO NEW.max_ludzi FROM domy_rekolekcyjne d WHERE d.id = new.id_domy_rekolekcyjne;
-			IF NOT FOUND THEN
-				RAISE EXCEPTION ''domu rekolekcyjnego % nie znaleziono!'', NEW.id_domy_rekolekcyjne;
-			END IF;
-		END IF;		
+		--testowanie data_zapisy
+		IF (NEW.data_zapisy > NEW.data_beg ) THEN 
+			RAISE EXCEPTION ''Data końca zbierania zapisów nie może być późniejsza niż data początku!'';
+			RETURN NULL;
+		END IF;
+			
 		RETURN NEW;
 	END
 ' LANGUAGE 'plpgsql';

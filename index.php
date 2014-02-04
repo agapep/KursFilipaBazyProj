@@ -1,8 +1,8 @@
 <?php
 	
-// 	ini_set('display_errors',1);
-// 	ini_set('log_errors',1);
-// 	error_reporting(E_ALL);
+ 	//~ ini_set('display_errors',1);
+ 	//~ ini_set('log_errors',1);
+ 	//~ error_reporting(E_ALL);
 	
 	require_once('./klasy/Template.php');
 	require_once('./klasy/DB.php');
@@ -45,6 +45,9 @@
 		
 	else if (isset($_GET['funkcje']))
 		$tmpl->add('main',funkcja($db, $_GET['funkcje']));
+		
+	else if(isset($_GET['funkcje_lista']))
+		$tmpl->add('main',funkcje_lista($db));
 		
 	else if (isset($_GET['ekipa_lista']))
 		$tmpl->add('main',ekipa_lista($db));
@@ -101,9 +104,12 @@
 	else if(isset($_GET['del_domy_rekolekcyjne']))
 		$tmpl->add('main',del($db,'del_domy_rekolekcyjne',$_GET['del_domy_rekolekcyjne']));
 	
-	else if(isset($_GET['del_funkcje']))
+	else if(isset($_GET['del_funkcje_ekipa_kurs']))
 		$tmpl->add('main',del_funkcje_ekipa_kurs($db,$_GET['idFunkcje'],$_GET['idEkipa'],$_GET['idKursy'])); 
 		
+	else if(isset($_GET['del_funkcje']))
+		$tmpl->add('main',del($db,'del_funkcje',$_GET['del_funkcje'])); 
+	
 	else if(isset($_GET['del_ekipa']))
 		$tmpl->add('main',del($db,'del_ekipa',$_GET['del_ekipa']));
 

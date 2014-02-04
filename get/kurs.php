@@ -10,7 +10,6 @@ function kurs ($database, $id) {
 				  DATE(k.data_end) as do , 
 				  DATE(k.data_zapisy) as zapisy_do,
 				  k.cena,
-				  max_ludzi as pojemnosc,
 				  d.miejscowosc as miejscowość 
 				FROM kursy k, domy_rekolekcyjne d 
 				WHERE d.id=k.id_domy_rekolekcyjne and k.id = ".$id."

@@ -4,9 +4,9 @@ ini_set ( 'log_errors', 1 );
 error_reporting ( E_ALL );
 require_once ('./klasy/DB.php');
 $i = 0;
-print_r($_POST);
-echo " ----- ";
-var_dump($_POST);
+//print_r($_POST);
+//echo " ----- ";
+//var_dump($_POST);
 
 function testKeyVal($key, $value) {
 	if ($key != 'id' && $key != 'redirect' && $value != '') return true;
@@ -65,8 +65,11 @@ if (!isset ( $id ) || $id == 0) {
 }
 //~ 
 $db = new DB ();
+$db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$q = $db->prepare($zapytanie);
-if ($db->exec($zapytanie)) {
+try {
+	$db->exec($zapytanie);
+	print_r("ok");
 	$errCode = 0;
 	$message = "poprawnie dodano ";
 	
@@ -74,11 +77,12 @@ if ($db->exec($zapytanie)) {
 	$redirect_to = "index.php?";
 	if( isset($_POST['redirect'])&& $_POST['redirect']) $redirect_to .= $_POST['redirect']."=".$_POST['id_'.$_POST['redirect']] ;
 	else $redirect_to .= $_GET['where']."=".$id; 
-} else {
-	$err_code = 1;
+} catch (Exception $e) {
+	print_r($e);
+	$errCode = 1;
 	$redirect_to = $_SERVER['HTTP_REFERER'];
-	$temp = $db->errorInfo();
-	$message = $temp[2];
+	//temp = $db->errorInfo();
+	$message = $e->getMessage(); //$temp[2];
 	if ( $message == null ) $message = "Niestety nie udało się dodać/zaaktualizować danych.
 			Niestety brak jakichkolwiek informacji co poszło nie tak.";
 	else {
@@ -86,6 +90,7 @@ if ($db->exec($zapytanie)) {
 		$err_code = $temp[0];
 	}
 }
+print_r($message);
 //$a = $db->exec ( $zapytanie );
 //echo $zapytanie;
 //echo $_SERVER['HTTP_REFERER'];
@@ -95,7 +100,7 @@ if ($db->exec($zapytanie)) {
 // echo " nieok";
 
 echo "<form action='".$redirect_to."' method='post' name='frm'>";
-echo "<input type='hidden' name='err_code' value='".$err_code."'>";
+echo "<input type='hidden' name='err_code' value='".$errCode."'>";
 echo "<input type='hidden' name='err_message' value='".$message."'>";
 echo "</form><script language='JavaScript'>".
 	"document.frm.submit();".

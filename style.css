@@ -239,3 +239,10 @@ fieldset {
 h2{
 	text-align: center;
 }
+
+
+.err {
+	background: white;
+	color: green;
+}
+

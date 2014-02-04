@@ -66,9 +66,10 @@
 				
 			//input standard values
 			$value = $item[$key];
-			if(substr($db_type, 0 , 9) == "timestamp") 
+			if(substr($db_type, 0 , 9) == "timestamp") {
+				date_default_timezone_set("Europe/Belgrade");
 				$value = date_format(date_create($value), 'Y-m-d');
-				
+			}
 			
 			$valueStr = isset($item[$key]) ? " value='".$value."' ": " ";
 			if(! is_int($key) && $key !='id') {

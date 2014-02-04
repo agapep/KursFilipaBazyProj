@@ -3,6 +3,7 @@
 	require_once('./get/ekipa.php');
 
 	require_once('./get/funkcja.php');
+	require_once('./get/funkcje_lista.php');
 	require_once('./get/kurs.php');
 	require_once('./get/kursy_lista.php');
 	require_once('./get/uczestnik.php');
