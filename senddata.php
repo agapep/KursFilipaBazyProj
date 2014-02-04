@@ -57,7 +57,7 @@ function update($GET, $POST, $id) {
 }
 
 $id = $_POST ['id'];
-//print_r($_POST);
+print_r($_POST);
 if (!isset ( $id ) || $id == 0) {
 	$zapytanie = insert ( $_GET, $_POST, $id );
 } else {
@@ -73,10 +73,13 @@ try {
 	$errCode = 0;
 	$message = "poprawnie dodano ";
 	
-	if (!isset ( $id ) || $id == 0) $id = $db -> lastInsertId($_GET['where']."_id_seq");
+	//if (!isset ( $id ) || $id == 0) $id = $db -> lastInsertId($_GET['where']."_id_seq");
 	$redirect_to = "index.php?";
-	if( isset($_POST['redirect'])&& $_POST['redirect']) $redirect_to .= $_POST['redirect']."=".$_POST['id_'.$_POST['redirect']] ;
-	else $redirect_to .= $_GET['where']."=".$id; 
+	if( isset($_POST['redirect']) && $_POST['redirect'] ) {
+		$redirect_to .= $_POST['redirect'];
+		if (isset($_POST['id_'.$_POST['redirect']])) 
+			$redirect_to .= "=".$_POST['id_'.$_POST['redirect']];
+	} else $redirect_to .= $_GET['where']."=".$id; 
 } catch (Exception $e) {
 	print_r($e);
 	$errCode = 1;

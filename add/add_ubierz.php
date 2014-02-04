@@ -6,7 +6,7 @@
 		return $d && $d->format($format) == $date;
 	}
 
-	function add_ubierz ($a, $database, $id) {
+	function add_ubierz ($a, $database, $id, $redirect) {
 		if ($id == 0) $id = null;
 		$ratiobox = Array();
 		$data = $a->fetchAll( PDO::FETCH_NAMED );
@@ -56,6 +56,8 @@
 			//print_r("kkk");
 			
 		}
+		$out .= '<tr><td><input type="hidden" name="redirect" value="'.$redirect."\" /></td></tr>".PHP_EOL;
+		$out .= '<tr><td><input type="hidden" name="id" value="'.$id."\" /></td></tr>".PHP_EOL;
 		return $out;
 	};
 	

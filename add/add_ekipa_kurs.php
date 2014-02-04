@@ -10,7 +10,7 @@
 		
 		$a = $database->query("SELECT id as id_funkcje
 							FROM funkcje" );
-		$out .= add_ubierz($a, $database);
+		$out .= add_ubierz($a, $database,0 ,"kurs=".$id);
 		//print_r($out.'kurde');
 		$out .= '<tr><td><input type="hidden" name="id_kursy" value="'.$id.'" checked="checked"/>';
 		$out .= '</td><td><input type="submit" value="wyślij" /></td></tr></form>';

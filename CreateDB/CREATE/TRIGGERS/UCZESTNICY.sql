@@ -87,4 +87,24 @@ CREATE OR REPLACE FUNCTION uczestnicy_naIlePewne() RETURNS TRIGGER AS '
 CREATE TRIGGER uzytkownicy_naIlePewne_trig BEFORE INSERT OR UPDATE on uczestnicy
 FOR EACH ROW EXECUTE PROCEDURE uczestnicy_naIlePewne(); 
 
+--Na ile pewne nie może być za duże ani za małe. Pewnie dało się to zrobić 100 razy prościej ale to jest projekt
+--Który jest skazany na nieużywanie. To samo można 100* prościej napisać w scali - slick.
+CREATE OR REPLACE FUNCTION uczestnicy_max() RETURNS TRIGGER AS '
+	DECLARE
+		temp INTEGER;
+		poj INTEGER;
+	BEGIN
+		SELECT count(id) FROM uczestnicy INTO temp WHERE id_kursy = NEW.id_kursy;
+		SELECT pojemnosc FROM domy_rekolekcyjne INTO poj WHERE id = (
+			SELECT id_domy_rekolekcyjne from kursy WHERE id = NEW.id_kursy);
+		IF (poj <= temp) THEN
+			RAISE EXCEPTION ''Osiągnięto maksymalną liczbę uczestników (%). Nie da się więcej.'', temp;
+		END IF;
+		RETURN NEW;
+	END
+' LANGUAGE 'plpgsql';
+
+CREATE TRIGGER uczestnicy_max_trig BEFORE INSERT OR UPDATE on uczestnicy
+FOR EACH ROW EXECUTE PROCEDURE uczestnicy_max(); 
+
 

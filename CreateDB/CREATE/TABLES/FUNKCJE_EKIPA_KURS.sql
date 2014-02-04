@@ -1,3 +1,5 @@
+CREATE SEQUENCE funkcje_ekipa_kurs_id_seq START WITH 1;
+--SELECT nextVal(funkcje_ekipa_kurs_id_seq);
 /* 
  * Opisuje relacje członka ekipy kursu filipa, do konkretnego kursu, 
  * i sprawowanych przez niego funkcji

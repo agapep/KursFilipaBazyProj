@@ -21,13 +21,11 @@ Drop Table funkcje_ekipa_kurs CASCADE;
 ------- DROP ALL FUNCTIONS ---------
 --================================--
 
-DROP FUNCTION ekipa_email() CASCADE;
 DROP FUNCTION kursy_uzupelnij_dane() CASCADE;
 DROP FUNCTION uczestnicy_data_id_kursy() CASCADE;
 DROP FUNCTION ekipa_usun_fun() CASCADE;
 DROP FUNCTION kursy_usun_fun() CASCADE;
 DROP FUNCTION funkcje_usun_fun() CASCADE;
-DROP FUNCTION fnc_verif_email_adr( p_email_adr in varchar ) CASCADE;
 
 --================================--
 ------- DROP ALL TRIGGERS-----------
@@ -46,6 +44,7 @@ DROP SEQUENCE kursy_id_seq CASCADE;
 DROP SEQUENCE domy_rekolekcyjne_id_seq CASCADE;
 DROP SEQUENCE uczestnicy_id_seq CASCADE;
 DROP SEQUENCE funkcje_id_seq CASCADE;
+DROP SEQUENCE funkcje_ekipa_kurs_id_seq CASCADE;
 
 --================================--
 ------- RESTART ALL SEQUENCE -------
