@@ -1,7 +1,7 @@
 <?php
-ini_set ( 'display_errors', 1 );
-ini_set ( 'log_errors', 1 );
-error_reporting ( E_ALL );
+//~ ini_set ( 'display_errors', 1 );
+//~ ini_set ( 'log_errors', 1 );
+//~ error_reporting ( E_ALL );
 require_once ('./klasy/DB.php');
 $i = 0;
 //print_r($_POST);
@@ -57,7 +57,7 @@ function update($GET, $POST, $id) {
 }
 
 $id = $_POST ['id'];
-print_r($_POST);
+//print_r($_POST);
 if (!isset ( $id ) || $id == 0) {
 	$zapytanie = insert ( $_GET, $_POST, $id );
 } else {
@@ -69,7 +69,7 @@ $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 //$q = $db->prepare($zapytanie);
 try {
 	$db->exec($zapytanie);
-	print_r("ok");
+	//print_r("ok");
 	$errCode = 0;
 	$message = "poprawnie dodano ";
 	
@@ -84,7 +84,7 @@ try {
 		$redirect_to .= $_GET['where']."=".$id; 
 	}
 } catch (Exception $e) {
-	print_r($e);
+	//print_r($e);
 	$errCode = 1;
 	$redirect_to = $_SERVER['HTTP_REFERER'];
 	//temp = $db->errorInfo();
@@ -96,7 +96,7 @@ try {
 		$err_code = $temp[0];
 	}
 }
-print_r($message);
+//print_r($message);
 //$a = $db->exec ( $zapytanie );
 //echo $zapytanie;
 //echo $_SERVER['HTTP_REFERER'];
