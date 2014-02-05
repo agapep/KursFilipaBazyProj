@@ -5,9 +5,6 @@
  *  jeśli nie zostanie podana (data_beg+=2)
  * -ostateczna data zbierania zapisów (data_zapisy) również może być 
  *  określona automatycznie jeśli nie zostanie podana. (data_beg-=5)
- * -maksymalna liczba uczestników (max_ludzi)  również może być obliczona 
- *  ze wzoru (id_domy_rekolekcyjne.pojemnosc -=7)
- *  (-7 bo zakładamy, iż około 7 osób będzie ekipy)  
  */
 
 --DROP TRIGGER kursy_data on kursy;

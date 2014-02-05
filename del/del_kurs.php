@@ -2,16 +2,17 @@
 	
 	function del ($database, $delFullName, $id) {
 		$delName = substr($delFullName,4);
-		$out = '<h2>Usunięto '.$delName.'</h2>';
-		
-		$a = $database->exec('DELETE FROM '.$delName.' WHERE id='.$id);
-		$out = '<h2>Usuwanie '.$delName.'</h2>';
-		if($a) 
-			$out .= '<p>hurra... usuneliśmy</p>';
-		else
-			$out .= '<p>coś poszło nie tak. Nie udało sie wszystkiego pousuwać</p>' ;
-		return $out;
-	};
+		$message = '<h2>Usuwanie '.$delName.'</h2>';
+		try {
+			$database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$a = $database->exec('DELETE FROM '.$delName.' WHERE id='.$id);
+			$message .= '<p>hurra... usuneliśmy</p>';
+		} catch(Exception $e) {
+			$message .= '<p>coś poszło nie tak. Nie udało sie wszystkiego pousuwać</p>' ;
+			$message .= '<p>'.$e->getMessage()."</p>" ;
+		}
+		return $message;
+	}
 	
 	function del_domy_rekolekcyjne($database, $id) {
 		$a = $database->exec('DELETE FROM kursy WHERE id_domy_rekolekcyjne='.$id);
