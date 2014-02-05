@@ -79,7 +79,10 @@ try {
 		$redirect_to .= $_POST['redirect'];
 		if (isset($_POST['id_'.$_POST['redirect']])) 
 			$redirect_to .= "=".$_POST['id_'.$_POST['redirect']];
-	} else $redirect_to .= $_GET['where']."=".$id; 
+	} else {
+		if (!isset ( $id ) || $id == 0) $id = $db -> lastInsertId($_GET['where']."_id_seq");
+		$redirect_to .= $_GET['where']."=".$id; 
+	}
 } catch (Exception $e) {
 	print_r($e);
 	$errCode = 1;
